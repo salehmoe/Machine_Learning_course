@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{graphicx}
+
+\usepackage[comma,square,numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\usepackage{lineno}
+\linenumbers
+
+%-------------------------------------------
+
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\setlength{\textwidth}{7.0in}
+\setlength{\oddsidemargin}{-0.35in}
+\setlength{\topmargin}{-0.5in}
+\setlength{\textheight}{9.0in}
+\setlength{\parindent}{0.3in}
+\begin{document}
+
+\begin{flushright}
+\textbf{Mohammad Saleh\\
+GRA at PHY WSU\\
+m.saleh@cern.ch\\ fa9520@wayne.edu\\
+Jan 25, 2017}
+\end{flushright}
+
+\begin{center}
+\textbf{CSC 5825 \\
+Homework 1 } \\
+\end{center}
+
+\section*{Solutions:}
+\textbf{Question 1:}
+\newline
+\textbf{a.} Let start the comparison by looking at the advantages of OCR over scanning and faxing it:
+-- The OCR will be able to save the document as a characters (A, a, b). This will make the documents editable. While scanning will give you an image only and you cannot change any text in the document.
+ So if you looking to edit or copy the text the OCR will be more preferable in this case.\newline
+-- The disadvantage of using OCR is the accuracy. As the document may include different fonts and hand writing, the OCR will not be accurate where the scan will show the accurate document. So if the details in the document is the important concern then the scan will be more preferable.\newline
+-- May be one other advantage of the optical reader is the size of the machine as the OCR can be smaller than the scanner but it will actually depend on the model of the scanner and the OCR. In case your are constrained to small area, probably the optical reader will be more preferable.
+\newline
+\newline
+\textbf{b.} The OCR will fail in many situation: As we mentioned before many fonts are available and some of them can be cursive which will be very hard for the OCR to e able to detect the characters. Also the OCR is matching the character with a template pixel by pixel. If we have our character with low resolution (small number of pixel), the OCR will fail as it will not have enough pixel information.
+\newline
+The barcode reader is still used because it very reliable as the barcode is a combination of line and the barcode reader will not fail to estimate the difference in the distance between whose line. Also the technology used in the barcode is simple and efficient and money wise it is cheaper than the OCR. So in case you need to tag a merchandise you don't need to assign characters to be read by OCR later on. The barcode will be enough to tag the merchandise.
+\newline
+\newline
+\textbf{Question 2:}
+\newline
+According to the equation of the circle eq.\ref{circle}, we have the radius and the center coordinates parameters that define any circle. The parameters for the hypothesis circle will be in between the most specified and  the most  general hypothesis in this sense will be only talking about changing the radius of the circle. The ellipse will be more useful as in the circle case we are constrained with the size of the radius and the variance across the x-axis and the y-axis will be the same where in the ellipse you have two different sizes of the axes (major and minor) and you can see the correlation between the x-axis and the y-axis more clearly. In addition to the major and minor axes we can also use a rotation angle for ellipse to include desired point (as example figure\ref{ellipse}) ~rather than the circle which will not have difference if you do rotation (isotropic). To generalize for K>2, we can use N binary hypothesis, with problems less than using triangles as using ellipse we will have more control on the K class using the two-axes and rotation angle.
+\begin{eqnarray}\label{circle}
+  \left( {x - x_0 } \right)^2 + \left( {y - y_0 } \right)^2 = R^2
+\end{eqnarray}
+\begin{figure}
+\centering
+  \includegraphics[scale=0.6]{ellipse.png}
+  \caption{an example of particle correlation represented by an ellipse rotated by some angle.}
+\label{ellipse}
+\end{figure}
+\newline
+\newline
+\textbf{Question 3:}
+\newline The answer for this question depends mainly on the application but we can discuss the different possible cases. S is the closest to the positive (doesn't make false positive) and G is close to the negative (doesn't make false negative). In the case where false positive and false negative have the same cost, we can choose h halfway between S and G. Whereas if false positive costs more than false negative, we choose h closer to S. Also, if false negative costs more than false positive, we choose h closer to G. As we said early it is application dependent.
+\newline
+\newline
+\textbf{Question 4:}
+\newline
+For given training set, we set S, most specified hypothesis, and G, most generalized hypothesis. Then we choose our h between S and G but we are not sure if h closer to S or G. SO the region between S and G depend on our intuitive. So the best queries by supervisor will be for instances between S and Q. In this case the region between S and G will be smaller as more instances will be available and we will be able to set larger boundaries on S and G.
+\newline
+\newline
+\textbf{Question 5:}
+\newline
+\textbf{a.}
+The likelihood ratio is defined as $p(\textbf{x}|C_{i})/p(\textbf{x}|C_{j})$, The discriminant function discriminates between two classes, defined as the ratio of class conditional density using Baye's rule:
+$g(\textbf{x})=P(C_{i}|x)/P(C_{j}|x)$, i$\neq$j, where it will choose $C_{i}$ if $g(\textbf{x})>1$ and $C_{j}$ otherwise. Also from Baye's rule: $P(C_{k}|x)=p(x|C_{k})*P(C_{k})/p(x)$. Implies that $g(x)= \frac{p(x|C_{i})}{p(x|C_{j})}*\frac{P(C_{i})}{P(C_{j})}$, which include the liklihood ratio.
+\newline
+\newline
+\textbf{b.}
+The same analogy here where the log odds ratio is defined as $\log\frac{P(C_{i}|x)}{P(C_{j}|x)}$. Also the discriminating function will be log formulated, $g(x)=\log\frac{P(C_{i}|x)}{P(C_{j}|x)}$, which choose $C_{i}$ if $g(\textbf{x})>0$ (since log(1)=0) and $C_{j}$ otherwise. Also from Baye's rule: $P(C_{k}|x)=p(x|C_{k})*P(C_{k})/p(x)$. Implies that $g(x)=\log\frac{p(x|C_{i})}{p(x|C_{j})}+\log\frac{P(C_{i})}{P(C_{j})}$
+
+\newpage
+\textbf{Question 6:}
+\newline
+Below is the syntax for all the parts (a, b, c, d). I did add comments in order to make it more clear. I did also include a snapshot for the compiled code. Sorry incase of not perfectly organised code. I am mainly using C++ in my research but I wrote the syntax in PYTHON to get familiar with the syntax (of course same logic as in C++).
+\begin{figure}
+\centering
+  \includegraphics[scale=0.4]{code}
+  \caption{snapshot of my code after compiling. It shows all the requested parameters for the homework.}
+\end{figure}
+
+\lstinputlisting[language=Python]{HomeWork_1.py}
+
+\end{document}

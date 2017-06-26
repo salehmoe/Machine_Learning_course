@@ -1,0 +1,192 @@
+
+
+
+
+
+\documentclass[journal]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+\usepackage{graphicx}
+\usepackage{listings}
+\lstset{frame=tb,
+  language=Python,
+  basicstyle=\fontsize{6}{6}\selectfont\ttfamily,
+%  aboveskip=3mm,
+%  belowskip=3mm,
+%  showstringspaces=false,
+%  columns=flexible,
+%  basicstyle={\small\ttfamily},
+%  numbers=none,
+%  numberstyle=\tiny\color{gray},
+%  keywordstyle=\color{blue},
+%  commentstyle=\color{dkgreen},
+%  stringstyle=\color{mauve},
+ breaklines=true,
+breakatwhitespace=true
+%  tabsize=3
+}
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Airplane crashes between Numbers and Regulations}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Mohammad Saleh}
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+Airplane accidents, still the most dangerous life threatening accident. The main reason for this believe or fearness is the
+number of survivor across each accident. Nowadays, it is a fact that nobody will survive an airplane accident. The global aviation
+administrations, mainly FAA (Federal aviation administration) in USA, regularly release new rules to maintain and decrease the number of airplane
+crashes. Many people show the statistics for these crashes but the results shows that this number is slightly decreasing over the years
+because they didn't take into account the number of flights yearly. In this letter, we will present the latest analysis for the number
+ of crashes per year globally and among the nations taking into account the increasing number in the flights yearly. We will highlight
+ the main causes of the crashes and the proposed solutions for the fulfillment of the final project of the machine learning course.
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+crashes, paper, analysis, airplane.
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+\IEEEPARstart{A}{irplane} is one the greatest human inventions. Nowadays, the technology for the new inventions in the
+aerospace field is growing fast, mainly in the drones technology. Lately, the FAA in the USA released a new regulations regarding
+ drone operations to maintain the safety
+of the commercial airplanes. In this analysis, we wanted to check how effective the regulations and safety on the airplane crashes
+and the number of survivors. It is very
+well known that the FAA is one of the main administrations for airplanes safety. We will start with general overview of the crashes
+yearly and the main reasons and check the proportionally of airplane crashes number in the USA.
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+%\hfill April 24, 2017
+\section{Analysis}
+\subsection{Crashes per year}
+Many people have worked on this analysis in terms of showing the number of crashes yearly without taking into
+account the number of flights yearly. This analysis has been forked from previous one at the Kaggle website. Figure~\ref{yearly} shows the number of crashes yearly normalized by the number
+of passengers yearly  as we don't have direct access to the number of flights yearly. The results show the number of crashes
+till 2009 because of the limitation of the dataset. The numbers on the y-axis are up to
+a constant value, the most important thing is the general trend in the number of crashes. It shows that the number of
+crashes decrease as times go, except couple years (1988, 1991) that had some reasons for having large number of crashes.
+ In the following paragraphs, we will
+look in the causes of the crashes and the main reason for this decrease in the number of crashes.
+\begin{figure}
+  \centering
+    \includegraphics[width=0.5\textwidth]{Yearly.png}
+    \caption{Proportion of the number of crashes of airplanes (commercial and non-commercial) yearly from 1996 to 2004}\label{yearly}
+\end{figure}
+\subsection{Cause of crashes}
+Figure~\ref{cause} shows the main reason for the crashes where the y-axis is in log-scale for comparison. The highest
+contribution is coming form the engine failure then bad
+weather and many different reasons shown in the figure. Principal component analysis (PCA) using the first two features scatter plot
+for the six different main causes shows that the engine failure is slightly correlated with other causes which is not surprising as
+engine failure is mostly from the engine mechanics. Engine failure is also not correlated with the FAA regulations and safety.
+To investigate more in the matter of the main cause of airplane causes, we looked for the number of crashes across the nations without
+normalizing these number of crashes. This investigation will show us the effect of FAA regulations on the number of crashes
+in the USA yearly.
+
+\subsection{Crashes in USA}
+Figure~\ref{nation} shows the number for crashes yearly across different nations. The y-axis plotted in log-scale for
+comparison. It shows that the USA has the largest number of
+accidents followed by Russia, whereas the USA is one of the leaders in the aviation regulations and safety and the third world
+country doesn't show much contribution in the figure. The large number of accidents in
+the USA is directly correlated to the number of flights. It is clear that this large number is directly related to the number of
+flights and engine failures as the cause of the accidents. Moreover, the crashes are mainly from single-engine airplanes which
+doesn't have emergency plans for engine failure. Even for multi-engine airplanes, the emergency plans for passengers still not
+effective these days, but this raise more wide research in terms of what new designs of airplanes that can lead to larger number of survivors
+incase of airplane crashes, many proposal are done but they still far from reality, the difficulty in this subject is due to the high altitude of the airplane.
+
+
+
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.5\textwidth]{cause.png}
+    \caption{THe main causes of airplane crashes}\label{cause}
+\end{figure}
+\begin{figure}
+  \centering
+    \includegraphics[width=0.5\textwidth]{Nations.png}
+    \caption{The main causes of airplane crashes}\label{nation}
+\end{figure}
+
+
+\section{Conclusion}
+We have shown the numbers of accidents and the main causes. The number of accidents are mainly from
+technology side (engine). The main cause lead to very small number of survivor. The best approach for increasing the
+number of survivors is also not effective due to the safety followed these days. To decrease the number of crashes and increase the
+number of survivor, the rules should be
+regarding airplanes manufacturing and emergency plans that can be followed by passengers other than the current ones. Lastly, to take you far from airplane fearness, the probability to die from
+car accident is much smaller than the probability to die from airplane accident.
+
+\newpage
+\appendices
+\section{Code}
+\lstinputlisting{Code.py}
+
+\begin{thebibliography}{1}
+
+\bibitem{Kaggle}
+https://www.kaggle.com/saurograndi/airplane-crashes-since-1908.
+\bibitem{norm}
+http://data.worldbank.org/indicator/IS.AIR.PSGR?end=2015
+
+\end{thebibliography}
+
+\end{document}

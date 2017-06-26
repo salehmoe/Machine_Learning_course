@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{helvet}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[left=1in,top=1in,right=1in,bottom=1in,nohead,nofoot]{geometry}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\begin{document}
+\fontfamily{phv}
+
+\begin{flushright}
+\textbf{Mohammad Saleh\\
+GRA at PHY WSU\\
+m.saleh@cern.ch\\ fa9520@wayne.edu\\
+March 8, 2017}
+\end{flushright}
+
+\begin{center}
+\textbf{CSC 5825 \\
+Homework  3} \\
+\end{center}
+
+\section*{Solutions:}
+\textbf{Question 1:}
+\newline
+\lstinputlisting[breaklines]{Problem1.py}
+\\
+\textbf{Question 2:}
+\\
+\\
+For two set of normal distribution which has a joint normal distribution defined as:\\
+$p(x,y)=\frac{1}{2\pi*\sqrt{1-\rho^{2}}}exp(-\frac{x^{2}-2\rho{}xy+y^{2}}{2(1-\rho^{2})})$, which is in the book page 97, where x here =$(x_{a}-\mu_{a})/\sigma_{a}$ and similarily for y
+so we want to look at the conditional probability:\\
+$p(x|y)$ is Gaussain too?????\\
+$p(x|y)=\frac{p(x,y)}{p(y)}$\\
+=$\frac{1}{2\pi*\sqrt{1-\rho^{2}}}exp(-\frac{x^{2}-2\rho{}xy+y^{2}}{2(1-\rho^{2})})*\sqrt{2\pi}exp(y^{2}/2)$=$\frac{1}{2\pi*\sqrt{1-\rho^{2}}}exp(-\frac{x^{2}-2\rho{}xy+\rho^{2}y^{2}}{2(1-\rho^{2})})$\\
+=$\frac{1}{2\pi*\sqrt{1-\rho^{2}}}exp(-\frac{(x-\rho{}y)^2}{2(1-\rho^{2})})$,\\
+which is in the form of normal (gaussain) distribution $N(\rho{}y,1-\rho^2)$
+\\
+\\
+\\
+\\
+\textbf{Question 3}
+\\
+First, lets start with the advantages of Mahalanobis distance over Euclidean distance. The Mahalanobis distance takes into account the covariance among the variables when calculating the distances where the Euclidean distance is blind to correlated variables. As Mahalanobis distance takes into account the covariance, the problem of scale and correlation  in the Euclidean distance are no longer there. The advantages of Euclidean distance over Mahalanobis distance is that the the Euclidean is easy and simple to calculate also easier to code.
+\\
+\\
+\textbf{Programming Questions}
+\\
+\\
+\textbf{Question 1:}
+\newline
+Below is the syntax for my code and figure.\ref{kernel} shows a snapshot of the compiled code
+\begin{figure}
+  \includegraphics[scale=0.8]{Kernel_Density_Dist.png}
+  \caption{snapshot of my code after compiling. It shows the kernel Gaussain distribution.}
+\label{kernel}
+\end{figure}
+
+\lstinputlisting[breaklines]{Homework3.py}
+\textbf{Question 2:}
+\newline
+\newline
+Below is the syntax for my code and figure.\ref{BPCA} shows a snapshot of the compiled code before applying PCA. Where figure.\ref{APCA} shows a snapshot of the compiled code after applying PCA
+\lstinputlisting[breaklines]{Homework3_2.py}
+\begin{figure}
+  \includegraphics[scale=0.5]{BPCA.png}
+  \caption{snapshot of my code after compiling. It shows the scatter plot before PCA. Two random features were used}
+\label{BPCA}
+\end{figure}
+\begin{figure}
+  \includegraphics[scale=0.5]{APCA.png}
+  \caption{snapshot of my code after compiling. It shows the scatter plot after PCA using $z_{1}$ and $z_{2}$.}
+\label{APCA}
+\end{figure}
+\textbf{Bonus question}
+Below is the syntax  for creating initial arrays and matrices for SVD and defining the SVD function to return u, s, and v, . It can be more optimized in case of memory leaks.
+\lstinputlisting[breaklines]{SVD.cxx}
+
+\end{document}

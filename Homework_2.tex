@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{graphicx}
+
+\usepackage[comma,square,numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+
+\begin{document}
+
+\begin{flushright}
+\bf{Mohammad Saleh\\
+GRA at PHY WSU\\
+m.saleh@cern.ch\\ fa9520@wayne.edu\\
+Feb 15, 2017}
+\end{flushright}
+
+\begin{center}
+\bf{CSC 5825 \\
+Homework 2 } \\
+\end{center}
+Please don't remove points because I am submitting the homework late. We did exchanged emails that I had a conference for 8 days and got approval for extending the submission date without penalty.
+\section*{Solutions:}
+\bf{Question 1:}
+\newline
+$P(x_{1},x_{2},...)=\prod_{i} p_{i}^{x_{i}}$
+\newline
+log likelihood $L(\bf{p}|x)=\log\prod_{i=1}^{N}\prod_{i=1}^{K}p_{i}^{x_{i}^{t}}=\sum_{t=1}^{N}\sum_{i=1}^{K}\log p_{i}^{x_{i}^{t}}$
+\newline
+$\frac{\partial L(\bf{r}|x)}{\partial p_{i}}=\frac{\partial[\sum_{t=1}^{N}\sum_{i=1}^{K}x_{i}^{t}.\log p_{i}+\lambda(\sum_{i=1}^{K}p_{i}-1)]}{\partial p_{i}}=0$ ; where $\lambda$ is lagrange multiplier
+\newline
+$\Rightarrow \sum_{t=1}^{N}x_{i}^{t}.\frac{1}{p_{i}}+\lambda=0$ \newline
+$\Rightarrow$$p_{i}=-\frac{1}{\lambda}\sum_{t=1}^{N}x_{i}^{t}$  \newline
+$\Rightarrow\sum_{i=1}^{K}x_{i}=1=-\frac{1}{\lambda}\sum_{t=1}^{N}(\sum_{i=1}^{K}x_{i}^{t})$ ; where $\sum_{i=1}^{K}x_{i}^{t}=1$
+\newline
+$\Rightarrow$ $\lambda=-N$ \newline
+$\Rightarrow$ $\hat{p}_{i}=\frac{\sum_{t=1}^{N}x_{i}^{t}}{N}$
+\\\\
+\bf{Question 2:}
+\newline
+$\log\frac{P(C_{1}|x)}{P(C_{2}|x)}=\log(P(x|C_{1}))+\log(P(C_{1}))-\log(P(x|C_{2}))-\log(P(C_{2}))$;   according to equation 5.16 page 100 \newline
+
+$\log\frac{P(C_{1}|x)}{P(C_{2}|x)}=(-1/2)\log(|\bf{S_{1}}|)+(1/2)\log(|\bf{S_{2}}|)-
+(1/2)(\bf{x}-\bf{\mu_{1}})^{T}\bf{S}_{1}^{-1}(\bf{x}-\bf{\mu_{1}})+
+(1/2) (\bf{x}-\bf{\mu_{2}})^{T}\bf{S}_{2}^{-1} (\bf{x}-\bf{\mu_{2}})+\log(P(C_{1}))-\log(P(C_{2}))$
+\newline
+\newline
+--We will start with the simpler case: \\ \\
+1-for Hyperspheric case:
+$\bf{S_{i}}=\bf{S}=s^{2}\bf{I};~~\bf{S_{1}} =\bf{S_{2}}=s^{2}\bf{I}$ \hfill \break
+$\Rightarrow\log\frac{P(C_{1}|x)}{P(C_{2}|x)}=-
+(1/2)\bf{s}^{2}(\bf{x}-\bf{\mu_{1}})^{T}(\bf{x}-\bf{\mu_{1}})+
+(1/2)\bf{s}^{2}(\bf{x}-\bf{\mu_{2}})^{T}(\bf{x}-\bf{\mu_{2}})+\log(P(C_{1}))-\log(P(C_{2}))$  \newline
+\\
+2-for Axis-aligned:
+\newline
+$\bf{S_{i}}=\bf{S}$ with $s_{ij}=0$ , we have $\bf{S_{1}}=\bf{S_{2}}=\bf{S}$
+$\Rightarrow$ $\log\frac{P(C_{1}|x)}{P(C_{2}|x)}=-
+(1/2)(\bf{x}-\bf{\mu_{1}})^{T}\bf{S}^{-1}(\bf{x}-\bf{\mu_{1}})+
+(1/2) (\bf{x}-\bf{\mu_{2}})^{T}\bf{S}^{-1} (\bf{x}-\bf{\mu_{2}})+\log(P(C_{1}))-\log(P(C_{2}))$   \newline
+\\
+3-for Shared Hyperellipsoidal case:
+$\bf{S_{i}}=\bf{S}$ we still have $\bf{S_{1}}=\bf{S_{2}}=\bf{S}$
+$\Rightarrow$ $\log\frac{P(C_{1}|x)}{P(C_{2}|x)}=-
+(1/2)(\bf{x}-\bf{\mu_{1}})^{T}\bf{S}^{-1}(\bf{x}-\bf{\mu_{1}})+
+(1/2) (\bf{x}-\bf{\mu_{2}})^{T}\bf{S}^{-1} (\bf{x}-\bf{\mu_{2}})+\log(P(C_{1}))-\log(P(C_{2}))$   \newline
+\\
+4-for Different Hyperellipsoidal case:
+ we have $\bf{S_{1}}\neq\bf{S_{2}}=\bf{S}$, we end up with the general case
+ \\ \\
+ $\log\frac{P(C_{1}|x)}{P(C_{2}|x)}=(-1/2)\log(|\bf{S_{1}}|)+(1/2)\log(|\bf{S_{2}}|)-
+ (1/2)(\bf{x}-\bf{\mu_{1}})^{T}\bf{S}_{1}^{-1}(\bf{x}-\bf{\mu_{1}})+
+ (1/2) (\bf{x}-\bf{\mu_{2}})^{T}\bf{S}_{2}^{-1} (\bf{x}-\bf{\mu_{2}})+\log(P(C_{1}))-\log(P(C_{2}))$
+ \newline
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\bf{Question 3:}
+\newline
+Below is the syntax for all the parts of the homework. I did add comments in order to make it more clear. I did also include a snapshot for the compiled code. I used numpy library for dealing with arrays only for simpler syntax(multiplying, mean, ... etc) but didn't use any main
+libraries for the question
+\begin{figure}
+  \includegraphics[scale=0.3]{code_2}
+  \caption{snapshot of my code after compiling. It shows all the requested output (MSE) for the homework.}
+\end{figure}
+
+\lstinputlisting[language=Python]{HomeWork_2.py}
+
+\end{document}
